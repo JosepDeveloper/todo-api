@@ -1,0 +1,16 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "message": "First Note"
+    },
+    {
+      "id": 2,
+      "message": "Second Note"
+    },
+    {
+      "id": 3,
+      "message": "Third Note"
+    }
+  ]
+}

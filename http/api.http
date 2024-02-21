@@ -1,0 +1,10 @@
+### get al root
+GET http://localhost:3000/
+
+### post 
+POST http://localhost:3000/
+Content-Type: application/json
+
+{
+    "message": "Otra Nota"
+}
