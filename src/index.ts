@@ -1,5 +1,5 @@
 import { Hono } from 'hono'
-const data = require('./database/data.json')
+const data = require('./database/mocks/data.json')
 
 const app = new Hono()
 
