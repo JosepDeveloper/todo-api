@@ -3,7 +3,7 @@ const data = require('./database/mocks/data.json')
 
 const app = new Hono()
 
-// Este es el Get 
+// Este es el Get
 app.get('/', async (c) => {
   return c.json(data.notes)
 })
@@ -27,5 +27,5 @@ app.post('/', async (c) => {
 
 export default {
   port: 4000,
-  fetch: app.fetch
+  fetch: app.fetch,
 }
