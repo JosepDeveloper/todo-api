@@ -1,10 +1,22 @@
-### get al root
+### get the all notes
+
 GET http://localhost:4000/
 
-### post 
+### post to new note
 POST http://localhost:4000/
 Content-Type: application/json
 
 {
     "message": "Otra Nota"
 }
+
+### post to new note Error (JSON emty)
+POST http://localhost:4000
+Content-Type: application/json
+
+{
+
+}
+
+### post to new note Error (No send JSON)
+POST http://localhost:4000
