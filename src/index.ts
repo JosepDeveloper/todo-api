@@ -1,7 +1,12 @@
 import { Hono } from 'hono'
-const data = require('./database/mocks/data.json')
+import { logger } from 'hono/logger'
+import isObjectEmty from './lib/is-object-emty'
+import { RequestBodyNewNote } from './types/request'
+import { DataNotes, Note } from './types/notes'
+const data: DataNotes = require('./database/mocks/data.json')
 
 const app = new Hono()
+app.use(logger())
 
 // Este es el Get
 app.get('/', async (c) => {
@@ -10,19 +15,25 @@ app.get('/', async (c) => {
 
 // Este es el post
 app.post('/', async (c) => {
-  const body = await c.req.json()
+  let body: RequestBodyNewNote = { message: '' }
 
-  console.log(body)
-
-  /* if (!message) return c.json({ status: 401, message: "The request not found" })
-
-  const newNotes = {
-    id: data.notes.lenght + 1,
-    message: message.content
+  try {
+    body = (await c.req.json()) as RequestBodyNewNote
+  } catch {
+    return c.json({ statusCode: 400, message: 'Bad Request' }, 400)
   }
-  data.notes.push(newNotes) */
 
-  return c.text('Hola')
+  if (isObjectEmty(body))
+    return c.json({ statusCode: 400, message: 'Bad Request' }, 400)
+
+  const newNote: Note = {
+    id: data.notes.length + 1,
+    message: body.message,
+  }
+
+  data.notes.push(newNote)
+
+  return c.json(newNote, 201)
 })
 
 export default {
