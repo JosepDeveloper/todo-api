@@ -1,13 +1,13 @@
 export interface DataNotes {
   notes: [
     {
-      id: number
+      id: string
       message: string
     },
   ]
 }
 
 export interface Note {
-  id: number
+  id: string
   message: string
 }

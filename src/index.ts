@@ -3,6 +3,7 @@ import { logger } from 'hono/logger'
 import isObjectEmty from '@/lib/is-object-emty'
 import { RequestBodyNewNote } from '@/types/request'
 import { DataNotes, Note } from '@/types/notes'
+const crypto = require('node:crypto')
 const data: DataNotes = require('@/database/mocks/data.json')
 
 const app = new Hono()
@@ -27,7 +28,7 @@ app.post('/', async (c) => {
     return c.json({ statusCode: 400, message: 'Bad Request' }, 400)
 
   const newNote: Note = {
-    id: data.notes.length + 1,
+    id: crypto.randomUUID(),
     message: body.message,
   }
 
