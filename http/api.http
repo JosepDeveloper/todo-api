@@ -1,5 +1,4 @@
 ### get the all notes
-
 GET http://localhost:4000/
 
 ### post to new note

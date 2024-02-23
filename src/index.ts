@@ -1,9 +1,9 @@
 import { Hono } from 'hono'
 import { logger } from 'hono/logger'
-import isObjectEmty from './lib/is-object-emty'
-import { RequestBodyNewNote } from './types/request'
-import { DataNotes, Note } from './types/notes'
-const data: DataNotes = require('./database/mocks/data.json')
+import isObjectEmty from '@/lib/is-object-emty'
+import { RequestBodyNewNote } from '@/types/request'
+import { DataNotes, Note } from '@/types/notes'
+const data: DataNotes = require('@/database/mocks/data.json')
 
 const app = new Hono()
 app.use(logger())
