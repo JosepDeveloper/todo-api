@@ -1,16 +1,16 @@
 ### get the all notes
-GET http://localhost:4000/
+GET http://localhost:4000/api
 
 ### post to new note
-POST http://localhost:4000/
+POST http://localhost:4000/api
 Content-Type: application/json
 
 {
-    "message": "Otra Nota"
+  "message": "Otra Nota"
 }
 
 ### post to new note Error (JSON emty)
-POST http://localhost:4000
+POST http://localhost:4000/api
 Content-Type: application/json
 
 {
@@ -18,4 +18,7 @@ Content-Type: application/json
 }
 
 ### post to new note Error (No send JSON)
-POST http://localhost:4000
+POST http://localhost:4000/api
+
+### Delete notes for id
+DELETE http://localhost:4000/api/d6f545e0-6c46-4885-9d22-875d2e8856fb

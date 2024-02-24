@@ -10,12 +10,12 @@ const app = new Hono()
 app.use(logger())
 
 // Este es el Get
-app.get('/', async (c) => {
+app.get('/api', async (c) => {
   return c.json(data.notes)
 })
 
 // Este es el post
-app.post('/', async (c) => {
+app.post('/api', async (c) => {
   let body: RequestBodyNewNote = { message: '' }
 
   try {
@@ -35,6 +35,19 @@ app.post('/', async (c) => {
   data.notes.push(newNote)
 
   return c.json(newNote, 201)
+})
+
+app.delete('/api/:id', async (c) => {
+  const id = c.req.param('id')
+
+  const newNotes = data.notes.filter((note) => {
+    return note.id !== id
+  })
+
+  /* Ahora te toca a ti hacer la de actualizar */
+  data.notes = newNotes
+
+  return c.json(newNotes)
 })
 
 export default {
