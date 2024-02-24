@@ -1,10 +1,5 @@
 export interface DataNotes {
-  notes: [
-    {
-      id: string
-      message: string
-    },
-  ]
+  notes: Note[]
 }
 
 export interface Note {
